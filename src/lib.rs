@@ -10,7 +10,8 @@
 //! // In your manifest use the `package` key to improve import ergonomics.
 //! // hex = { package = "hex-conservative", version = "*" }
 //! # use hex_conservative as hex; // No need for this if using `package` as above.
-//! use hex::prelude::*;
+//! use hex::display::DisplayHex;
+//! use hex::parse::FromHex;
 //!
 //! // Decode an arbitrary length hex string into a vector.
 //! let v = Vec::from_hex("deadbeef").expect("valid hex digits");
@@ -59,12 +60,6 @@ mod iter;
 pub mod parse;
 #[cfg(feature = "serde")]
 pub mod serde;
-
-/// Re-exports of the common crate traits.
-pub mod prelude {
-    #[doc(inline)]
-    pub use crate::{display::DisplayHex, parse::FromHex};
-}
 
 pub(crate) use table::Table;
 

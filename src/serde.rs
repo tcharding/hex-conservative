@@ -23,7 +23,8 @@ use core::marker::PhantomData;
 use serde::de::{Error, Visitor};
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
-use crate::prelude::*;
+use crate::display::DisplayHex;
+use crate::parse::FromHex;
 
 /// Serializes `data` as a hex string using lowercase characters.
 ///
