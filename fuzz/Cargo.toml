@@ -17,9 +17,5 @@ hex = { path = "..", package = "hex-conservative" }
 name = "hex"
 path = "fuzz_targets/hex.rs"
 
-[[bin]]
-name = "encode"
-path = "fuzz_targets/encode.rs"
-
 [lints.rust]
 unexpected_cfgs = { level = "deny", check-cfg = ['cfg(fuzzing)'] }

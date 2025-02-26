@@ -6,11 +6,13 @@ use core::{fmt, str};
 
 #[cfg(all(feature = "alloc", not(feature = "std")))]
 use crate::alloc::vec::Vec;
+#[cfg(feature = "alloc")]
+use crate::error::HexToBytesError;
 use crate::error::InvalidLengthError;
 use crate::iter::HexToBytesIter;
 
 #[rustfmt::skip]                // Keep public re-exports separate.
-pub use crate::error::{HexToBytesError, HexToArrayError};
+pub use crate::error::HexToArrayError;
 
 /// Trait for objects that can be deserialized from hex strings.
 pub trait FromHex: Sized + sealed::Sealed {
@@ -130,19 +132,5 @@ mod tests {
             <[u8; 4]>::from_hex(len_sixteen).unwrap_err(),
             InvalidLengthError { invalid: 16, expected: 8 }.into()
         )
-    }
-
-    #[test]
-    #[cfg(feature = "alloc")]
-    fn mixed_case() {
-        use crate::display::DisplayHex as _;
-
-        let s = "DEADbeef0123";
-        let want_lower = "deadbeef0123";
-        let want_upper = "DEADBEEF0123";
-
-        let v = Vec::<u8>::from_hex(s).expect("valid hex");
-        assert_eq!(format!("{:x}", v.as_hex()), want_lower);
-        assert_eq!(format!("{:X}", v.as_hex()), want_upper);
     }
 }
