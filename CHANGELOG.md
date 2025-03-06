@@ -1,3 +1,7 @@
+# 1.0.0 - TODO
+
+This changelog is a rolling description of everything that will eventually end up in `v1.0`.
+
 # 0.3.0 - 2024-09-18
 
 - Re-implement `HexWriter` [#113](https://github.com/rust-bitcoin/hex-conservative/pull/113)
