@@ -1,7 +1,21 @@
-# Unreleased
+# 1.1.0 - 2026-04-20
 
-- Add `hex!` macro for const hex literal parsing.
-- Bump the MSRV
+- Prepare master to be `v1.1` [#206](https://github.com/rust-bitcoin/hex-conservative/pull/206)
+  - Delete `serde` module
+  - Delete `FromHex` trait
+- Convert `DisplayHex` to use GAT [#215](https://github.com/rust-bitcoin/hex-conservative/pull/215https://github.com/rust-bitcoin/hex-conservative/pull/215)
+- Bump MSRV to Rust `v1.74.0`
+  - [#216](https://github.com/rust-bitcoin/hex-conservative/pull/216)
+  - [#228](https://github.com/rust-bitcoin/hex-conservative/pull/228)
+- Derive standard traits on all types [#221](https://github.com/rust-bitcoin/hex-conservative/pull/221)
+- Add `FromIterator` and `Extend` to `BufEncoder` [#223](https://github.com/rust-bitcoin/hex-conservative/pull/223)
+- Remove `serde` dependencies [#224](https://github.com/rust-bitcoin/hex-conservative/pull/224)
+- Convert `HexSliceToBytesIter` to a newtype instead of an alias [#227](https://github.com/rust-bitcoin/hex-conservative/pull/227)
+- Implement `nth` and `nth_back` [#232](https://github.com/rust-bitcoin/hex-conservative/pull/232)
+- Fix `InvalidCharError` position with mixed reading on `HexToBytesIter` [#235](https://github.com/rust-bitcoin/hex-conservative/pull/235)
+- Introduce `Char` enum and rewrite `BytesToHexIter` to return it [#236](https://github.com/rust-bitcoin/hex-conservative/pull/236)
+- Add const `hex!` macro [#195](https://github.com/rust-bitcoin/hex-conservative/pull/195)
+
 
 # 1.0.1 - 2025-12-02
 
